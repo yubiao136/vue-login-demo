@@ -60,6 +60,14 @@ describe('DashboardView', () => {
     expect(wrapper.text()).toContain('存储空间')
   })
 
+  it('shows a logout button with correct text', () => {
+    const wrapper = mount(DashboardView)
+    const logoutButton = wrapper.find('[data-testid="logout-button"]')
+
+    expect(logoutButton.exists()).toBe(true)
+    expect(logoutButton.text()).toBe('退出登录')
+  })
+
   it('shows recent activity section', () => {
     const wrapper = mount(DashboardView)
 
