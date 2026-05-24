@@ -34,6 +34,7 @@ describe('DashboardView', () => {
 
     expect(wrapper.text()).toContain('demo@example.com')
     expect(wrapper.text()).toContain('Demo User')
+    expect(wrapper.find('[data-testid="user-email"]').text()).toBe('demo@example.com')
   })
 
   it('shows welcome title', () => {
@@ -58,6 +59,11 @@ describe('DashboardView', () => {
     expect(wrapper.text()).toContain('进行中项目')
     expect(wrapper.text()).toContain('待完成任务')
     expect(wrapper.text()).toContain('存储空间')
+    expect(wrapper.text()).toContain('12')
+    expect(wrapper.text()).toContain('48')
+    expect(wrapper.text()).toContain('6.2 GB')
+    expect(wrapper.text()).toContain('+2')
+    expect(wrapper.text()).toContain('-8')
   })
 
   it('shows a logout button with correct text', () => {
@@ -74,6 +80,9 @@ describe('DashboardView', () => {
     expect(wrapper.text()).toContain('最近活动')
     expect(wrapper.text()).toContain('Vue Login Demo')
     expect(wrapper.text()).toContain('Dashboard 静态布局')
+    expect(wrapper.text()).toContain('设计稿 v2.3.fig')
+    expect(wrapper.text()).toContain('Q2 版本发布')
+    expect(wrapper.text()).toContain('代码审查 #42')
   })
 
   it('logs out and redirects to login', async () => {
