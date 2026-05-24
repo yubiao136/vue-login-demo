@@ -29,10 +29,47 @@ describe('DashboardView', () => {
     vi.useRealTimers()
   })
 
-  it('shows current user and logs out', async () => {
+  it('shows current user info', () => {
     const wrapper = mount(DashboardView)
 
     expect(wrapper.text()).toContain('demo@example.com')
+    expect(wrapper.text()).toContain('Demo User')
+  })
+
+  it('shows welcome title', () => {
+    const wrapper = mount(DashboardView)
+
+    expect(wrapper.text()).toContain('欢迎回来')
+  })
+
+  it('shows quick actions section', () => {
+    const wrapper = mount(DashboardView)
+
+    expect(wrapper.text()).toContain('快捷操作')
+    expect(wrapper.text()).toContain('新建文档')
+    expect(wrapper.text()).toContain('上传文件')
+    expect(wrapper.text()).toContain('邀请成员')
+  })
+
+  it('shows status overview section', () => {
+    const wrapper = mount(DashboardView)
+
+    expect(wrapper.text()).toContain('状态概览')
+    expect(wrapper.text()).toContain('进行中项目')
+    expect(wrapper.text()).toContain('待完成任务')
+    expect(wrapper.text()).toContain('存储空间')
+  })
+
+  it('shows recent activity section', () => {
+    const wrapper = mount(DashboardView)
+
+    expect(wrapper.text()).toContain('最近活动')
+    expect(wrapper.text()).toContain('Vue Login Demo')
+    expect(wrapper.text()).toContain('Dashboard 静态布局')
+  })
+
+  it('logs out and redirects to login', async () => {
+    const wrapper = mount(DashboardView)
 
     await wrapper.find('[data-testid="logout-button"]').trigger('click')
     await flushPromises()
